@@ -1,0 +1,96 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Authors>柳柳软件(66soft.net)</Authors>
+    <Company>柳柳软件(66soft.net)</Company>
+    <Copyright>Copyright © 66SOFT 2014-2018</Copyright>
+    <PackageLicenseUrl>https://choosealicense.com/licenses/apache-2.0/</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/i66soft/osharp-ns20</PackageProjectUrl>
+    <PackageIconUrl>https://en.gravatar.com/userimage/140788132/0ff3b1e68fa0154337b1528c4276e276.png?size=80</PackageIconUrl>
+    <RepositoryUrl>https://github.com/i66soft/osharp-ns20</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>osharp</PackageTags>
+    <NeutralLanguage>zh-CHS</NeutralLanguage>
+    <UserSecretsId>166558f9-be39-46bb-8d0c-1bfc1bc5f26f</UserSecretsId>
+    <!--<AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>-->
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile></DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netcoreapp2.2\OSharp.Demo.Web.xml</DocumentationFile>
+    <NoWarn>1701;1702;1591;</NoWarn>
+  </PropertyGroup>
+
+  <Import Project="../../../build/version.props" />
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20190411051826_Init.cs" />
+    <Compile Remove="Migrations\20190411051826_Init.Designer.cs" />
+    <Compile Remove="Migrations\20190411052553_Init.cs" />
+    <Compile Remove="Migrations\20190411052553_Init.Designer.cs" />
+    <Compile Remove="Migrations\20190411060653_Init.cs" />
+    <Compile Remove="Migrations\20190411060653_Init.Designer.cs" />
+    <Compile Remove="Migrations\20190412091114_audit1.cs" />
+    <Compile Remove="Migrations\20190412091114_audit1.Designer.cs" />
+    <Compile Remove="Migrations\20190412143458_Audit1.cs" />
+    <Compile Remove="Migrations\20190412143458_Audit1.Designer.cs" />
+    <Compile Remove="Startups\MySqlDefaultDbContextMigrationPack.cs" />
+    <Compile Remove="Startups\MySqlDesignTimeDefaultDbContextFactory.cs" />
+    <Compile Remove="Startups\OracleDefaultDbContextMigrationPack.cs" />
+    <Compile Remove="Startups\OracleDesignTimeDefaultDbContextFactory.cs" />
+    <Compile Remove="Startups\PostgreSqlDefaultDbContextMigrationPack.cs" />
+    <Compile Remove="Startups\PostgreSqlDesignTimeDefaultDbContextFactory.cs" />
+    <Compile Remove="Startups\SqliteDefaultDbContextMigrationPack.cs" />
+    <Compile Remove="Startups\SqliteDesignTimeDefaultDbContextFactory.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Remove="Properties\PublishProfiles\FolderProfile.pubxml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
+    <Folder Include="wwwroot\" />
+    <Folder Include="wwwroot\upload-files\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\OSharp.AspNetCore\OSharp.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\..\src\OSharp.AutoMapper\OSharp.AutoMapper.csproj" />
+    <ProjectReference Include="..\..\..\src\OSharp.CodeGeneration\OSharp.CodeGeneration.csproj" />
+    <ProjectReference Include="..\..\..\src\OSharp.EntityFrameworkCore.MySql\OSharp.EntityFrameworkCore.MySql.csproj" />
+    <ProjectReference Include="..\..\..\src\OSharp.EntityFrameworkCore.Oracle\OSharp.EntityFrameworkCore.Oracle.csproj" />
+    <ProjectReference Include="..\..\..\src\OSharp.EntityFrameworkCore.PostgreSql\OSharp.EntityFrameworkCore.PostgreSql.csproj" />
+    <ProjectReference Include="..\..\..\src\OSharp.EntityFrameworkCore.Sqlite\OSharp.EntityFrameworkCore.Sqlite.csproj" />
+    <ProjectReference Include="..\..\..\src\OSharp.EntityFrameworkCore.SqlServer\OSharp.EntityFrameworkCore.SqlServer.csproj" />
+    <ProjectReference Include="..\..\..\src\OSharp.Exceptionless\OSharp.Exceptionless.csproj" />
+    <ProjectReference Include="..\..\..\src\OSharp.Hangfire\OSharp.Hangfire.csproj" />
+    <ProjectReference Include="..\..\..\src\OSharp.Log4Net\OSharp.Log4Net.csproj" />
+    <ProjectReference Include="..\..\..\src\OSharp.MiniProfiler\OSharp.MiniProfiler.csproj" />
+    <ProjectReference Include="..\..\..\src\OSharp.Redis\OSharp.Redis.csproj" />
+    <ProjectReference Include="..\..\..\src\OSharp.Swagger\OSharp.Swagger.csproj" />
+    <ProjectReference Include="..\Liuliu.Demo.Core\Liuliu.Demo.Core.csproj" />
+    <ProjectReference Include="..\Liuliu.Demo.EntityConfiguration\Liuliu.Demo.EntityConfiguration.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
+</Project>
